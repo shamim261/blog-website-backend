@@ -3,6 +3,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const http = require("http");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 
 // external imports
 const {
@@ -17,6 +18,7 @@ const app = express();
 const server = http.createServer(app);
 dotenv.config();
 app.use(express.json());
+app.use(cookieParser(process.env.JWT_SECRET));
 
 // mongoose connect
 mongoose
@@ -28,7 +30,7 @@ mongoose
 
 // routing setup
 app.use("/", loginRouter);
-app.use("/user", usersRouter);
+app.use("/api/users", usersRouter);
 app.use("/blog", blogRouter);
 
 // error handling
