@@ -31,7 +31,7 @@ mongoose
 // routing setup
 app.use("/", loginRouter);
 app.use("/api/users", usersRouter);
-app.use("/blog", blogRouter);
+app.use("/api/blog", blogRouter);
 
 // error handling
 app.use(notFoundHandler);

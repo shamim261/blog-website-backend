@@ -8,7 +8,7 @@ const User = require("../models/People");
 
 async function getUsers(req, res, next) {
   try {
-    let users = await User.find({}, { _id: 0, __v: 0 });
+    let users = await User.find({}, { _id: 0, __v: 0, password: 0 });
 
     if (users) {
       res.status(200).json({
@@ -67,6 +67,7 @@ async function loginUser(req, res, next) {
           username: user.username,
           email: user.email,
         };
+        req.user = userObject;
         // generate JWT token
         const token = jwt.sign(userObject, process.env.JWT_SECRET, {
           expiresIn: process.env.JWT_EXPIRY,

@@ -15,10 +15,11 @@ const {
   loginValidator,
   loginValidatorHandler,
 } = require("../middlewares/user/loginValidator");
+const checkLogin = require("../middlewares/common/checkLogin");
 const router = express.Router();
 
 // get user
-router.get("/", getUsers);
+router.get("/", checkLogin, getUsers);
 
 // ADD user
 router.post("/signup", addUserValidator, addUserValidatorHandler, addUser);
