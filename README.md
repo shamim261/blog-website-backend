@@ -1,6 +1,7 @@
 # Backend of A Blog Website Using Express JS
 
 A simple rest API for a blog website
+![image](https://socialify.git.ci/shamim261/blog-website-backend/image?language=1&name=1&owner=1&theme=Light)
 
 ## Environment Variables
 
